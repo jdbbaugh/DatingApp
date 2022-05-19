@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.DTOs;
 using API.Entities;
 using AutoMapper;
 using DatingApp.API.DTOs;
@@ -18,6 +19,7 @@ namespace DatingApp.API.Helpers
             src.Photos.FirstOrDefault(x => x.IsMain).Url))
           .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
         CreateMap<Photo, PhotoDto>();
+        CreateMap<MemberUpdateDto, AppUser>();
     }
   }
 }
